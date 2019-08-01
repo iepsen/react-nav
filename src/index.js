@@ -3,13 +3,14 @@ import ReactDOM from 'react-dom'
 import Header from './header'
 import Body from './body'
 import Footer from './footer'
+import { getContainerStyle } from './css'
 
 ReactDOM.render(
-  <React.Fragment>
+  <div style={getContainerStyle()}>
     <Header id="header" />
     <Body id="body" />
     <Footer id="footer" />
-  </React.Fragment>,
+  </div>,
   document.getElementById('app')
 );
 module.hot.accept();
