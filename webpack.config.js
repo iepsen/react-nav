@@ -23,6 +23,7 @@ module.exports = {
   ],
   devServer: {
     contentBase: './dist',
+    port: process.env.PORT || 8000,
     hot: true
   }
 };
