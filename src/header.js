@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import { withNav } from './with-nav'
 import { useFocus } from './use-focus'
+import { getHeaderStyle } from './css'
 
 const Header = ({ id, onNavUp, onNavDown }) => {
-  const [backgroundColor, setBackgroundColor] = useState('white')
-  const { hasFocus } = useFocus({ focused: true, id })
+  const [style, setStyle] = useState(getHeaderStyle())
+  const { hasFocus } = useFocus({ isFocused: true, id })
 
   useEffect(() => {
-    setBackgroundColor(hasFocus ? 'red' : 'white')
+    setStyle(getHeaderStyle(hasFocus))
     if (hasFocus) {
       onNavDown('body')
       onNavUp('footer')
@@ -16,7 +17,7 @@ const Header = ({ id, onNavUp, onNavDown }) => {
       onNavUp(null)
     }
   }, [hasFocus])
-  return <div style={{ backgroundColor }}>Header</div>
+  return <div style={style}>Header</div>
 }
 
 export default withNav(Header)

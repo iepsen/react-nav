@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import { withNav } from './with-nav'
 import { useFocus } from './use-focus'
+import { getFooterStyle } from './css'
 
 const Footer = ({ id, onNavUp, onNavDown }) => {
-  const [backgroundColor, setBackgroundColor] = useState('white')
+  const [style, setStyle] = useState(getFooterStyle())
   const { hasFocus } = useFocus({ id })
 
   useEffect(() => {
-    setBackgroundColor(hasFocus ? 'red' : 'white')
+    setStyle(getFooterStyle(hasFocus))
     if (hasFocus) {
       onNavUp('body')
       onNavDown('header')
@@ -16,7 +17,7 @@ const Footer = ({ id, onNavUp, onNavDown }) => {
       onNavDown(null)
     }
   }, [hasFocus])
-  return <div style={{ backgroundColor }}>Footer</div>
+  return <div style={style}>Footer</div>
 }
 
 export default withNav(Footer)
