@@ -1,21 +1,11 @@
-import React, { useEffect, useState } from 'react'
-import useNav from './use-nav'
+import React from 'react'
 import { getHeaderStyle } from './css'
 
 /**
  * Header functional component
  * @param {object} props
- * @param {string} props.id
+ * @param {boolean} props.isActive
  */
-const Header = ({ id }) => {
-  const [style, setStyle] = useState(getHeaderStyle())
-  const isActive = useNav({ id, onUp: 'footer', onDown: 'body', active: true })
-
-  useEffect(() => {
-    setStyle(getHeaderStyle(isActive))
-  }, [isActive])
-
-  return <div style={style}>Header</div>
-}
+const Header = ({ isActive }) => <div style={getHeaderStyle(isActive)}>Header</div>
 
 export default Header
