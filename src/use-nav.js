@@ -7,11 +7,12 @@ import { ON_KEY_DOWN, ON_NAV_CHANGE } from './constants'
  * 
  * @param {object} props
  * @param {string} props.id
- * @param {boolean=} props.active
- * @param {string=} props.onUp
- * @param {string=} props.onDown
- * @param {string=} props.onLeft
- * @param {string=} props.onRight
+ * @param {boolean} [props.active]
+ * @param {string} [props.onUp]
+ * @param {string} [props.onDown]
+ * @param {string} [props.onLeft]
+ * @param {string} [props.onRight]
+ * @returns {boolean} isActive
  */
 const useNav = ({ id, active = false, onUp = null, onDown = null, onLeft = null, onRight = null }) => {
   const [isActive, setActive] = useState(active)

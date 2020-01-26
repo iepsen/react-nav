@@ -11,11 +11,8 @@ import useNav from './use-nav'
  * @param {string} [props.onLeft]
  * @param {string} [props.onRight]
  * @param {boolean} [props.active]
- * @returns {React.ReactElement}
+ * @returns {React.ReactElement} Nav
  */
-const Nav = ({ children, ...props}) => {
-  const isActive = useNav(props)
-  return children(isActive)
-}
+const Nav = ({ children, ...props}) => children(useNav(props))
 
 export default Nav
