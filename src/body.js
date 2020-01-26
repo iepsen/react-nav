@@ -1,23 +1,21 @@
 import React, { useEffect, useState } from 'react'
-import { withNav } from './with-nav'
-import { useFocus } from './use-focus'
+import useNav from './use-nav'
 import { getBodyStyle } from './css'
 
-const Body = ({ id, onNavUp, onNavDown }) => {
+/**
+ * Body functional component
+ * @param {object} props
+ * @param {string} props.id
+ */
+const Body = ({ id }) => {
   const [style, setStyle] = useState(getBodyStyle())
-  const { hasFocus } = useFocus({ id })
+  const isActive = useNav({ id, onUp: 'header', onDown: 'footer' })
 
   useEffect(() => {
-    setStyle(getBodyStyle(hasFocus))
-    if (hasFocus) {
-      onNavUp('header')
-      onNavDown('footer')  
-    } else {
-      onNavUp(null)
-      onNavDown(null)
-    }
-  }, [hasFocus])
+    setStyle(getBodyStyle(isActive))
+  }, [isActive])
+
   return <div style={style}>Body</div>
 }
 
-export default withNav(Body)
+export default Body

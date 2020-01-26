@@ -1,23 +1,21 @@
 import React, { useEffect, useState } from 'react'
-import { withNav } from './with-nav'
-import { useFocus } from './use-focus'
+import useNav from './use-nav'
 import { getHeaderStyle } from './css'
 
-const Header = ({ id, onNavUp, onNavDown }) => {
+/**
+ * Header functional component
+ * @param {object} props
+ * @param {string} props.id
+ */
+const Header = ({ id }) => {
   const [style, setStyle] = useState(getHeaderStyle())
-  const { hasFocus } = useFocus({ isFocused: true, id })
+  const isActive = useNav({ id, onUp: 'footer', onDown: 'body', active: true })
 
   useEffect(() => {
-    setStyle(getHeaderStyle(hasFocus))
-    if (hasFocus) {
-      onNavDown('body')
-      onNavUp('footer')
-    } else {
-      onNavDown(null)
-      onNavUp(null)
-    }
-  }, [hasFocus])
+    setStyle(getHeaderStyle(isActive))
+  }, [isActive])
+
   return <div style={style}>Header</div>
 }
 
-export default withNav(Header)
+export default Header
