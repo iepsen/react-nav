@@ -1,4 +1,9 @@
-const getCommonStyle = focused => {
+/**
+ * Returns common style for each component
+ * @param {boolean=} active
+ * @returns {React.CSSProperties} 
+ */
+const getCommonStyle = (active = false) => {
   return {
     fontFamily: `'Roboto', sans-serif`,
     fontSize: '50px',
@@ -7,10 +12,14 @@ const getCommonStyle = focused => {
     justifyContent: 'center',
     width: '100%',
     height: '80px',
-    color: focused ? 'white' : 'black',
+    color: active ? 'white' : 'black',
   }
 }
 
+/**
+ * Returns style for container
+ * @returns {React.CSSProperties} 
+ */
 export const getContainerStyle = () => {
   return {
     display: 'flex',
@@ -18,26 +27,41 @@ export const getContainerStyle = () => {
   }
 }
 
-export const getHeaderStyle = focused => {
+/**
+ * Returns style for Header component
+ * @param {boolean=} active
+ * @returns {React.CSSProperties} 
+ */
+export const getHeaderStyle = (active = false) => {
   return {
-    ...getCommonStyle(focused),
+    ...getCommonStyle(active),
     alignSelf: 'flex-start',
-    backgroundColor: focused ? 'red' : 'white'
+    backgroundColor: active ? 'red' : 'white'
   }
 }
 
-export const getBodyStyle = focused => {
+/**
+ * Returns style for Body component
+ * @param {boolean=} active
+ * @returns {React.CSSProperties} 
+ */
+export const getBodyStyle = (active = false) => {
   return {
-    ...getCommonStyle(focused),
+    ...getCommonStyle(active),
     alignSelf: 'center',
-    backgroundColor: focused ? 'green' : 'white'
+    backgroundColor: active ? 'green' : 'white'
   }
 }
 
-export const getFooterStyle = focused => {
+/**
+ * Returns style for Footer component
+ * @param {boolean=} active
+ * @returns {React.CSSProperties} 
+ */
+export const getFooterStyle = (active = false) => {
   return {
-    ...getCommonStyle(focused),
+    ...getCommonStyle(active),
     alignSelf: 'flex-end',
-    backgroundColor: focused ? 'blue' : 'white'
+    backgroundColor: active ? 'blue' : 'white'
   }
 }
