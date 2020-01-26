@@ -1,21 +1,11 @@
 import React, { useEffect, useState } from 'react'
-import useNav from './use-nav'
 import { getBodyStyle } from './css'
 
 /**
  * Body functional component
  * @param {object} props
- * @param {string} props.id
+ * @param {boolean} props.isActive
  */
-const Body = ({ id }) => {
-  const [style, setStyle] = useState(getBodyStyle())
-  const isActive = useNav({ id, onUp: 'header', onDown: 'footer' })
-
-  useEffect(() => {
-    setStyle(getBodyStyle(isActive))
-  }, [isActive])
-
-  return <div style={style}>Body</div>
-}
+const Body = ({ isActive }) => <div style={getBodyStyle(isActive)}>Body</div>
 
 export default Body
