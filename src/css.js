@@ -1,36 +1,36 @@
 /**
  * Returns common style for each component
  * @param {boolean=} active
- * @returns {React.CSSProperties} 
+ * @returns {React.CSSProperties}
  */
 const getCommonStyle = (active = false) => {
   return {
-    fontFamily: `'Roboto', sans-serif`,
+    fontFamily: '\'Roboto\', sans-serif',
     fontSize: '50px',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
     width: '100%',
     height: '80px',
-    color: active ? 'white' : 'black',
+    color: active ? 'white' : 'black'
   }
 }
 
 /**
  * Returns style for container
- * @returns {React.CSSProperties} 
+ * @returns {React.CSSProperties}
  */
 export const getContainerStyle = () => {
   return {
     display: 'flex',
-    flexDirection: 'column',
+    flexDirection: 'column'
   }
 }
 
 /**
  * Returns style for Header component
  * @param {boolean=} active
- * @returns {React.CSSProperties} 
+ * @returns {React.CSSProperties}
  */
 export const getHeaderStyle = (active = false) => {
   return {
@@ -43,7 +43,7 @@ export const getHeaderStyle = (active = false) => {
 /**
  * Returns style for Body component
  * @param {boolean=} active
- * @returns {React.CSSProperties} 
+ * @returns {React.CSSProperties}
  */
 export const getBodyStyle = (active = false) => {
   return {
@@ -56,7 +56,7 @@ export const getBodyStyle = (active = false) => {
 /**
  * Returns style for Footer component
  * @param {boolean=} active
- * @returns {React.CSSProperties} 
+ * @returns {React.CSSProperties}
  */
 export const getFooterStyle = (active = false) => {
   return {

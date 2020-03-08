@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
+import PropTypes from 'prop-types'
 import { getFooterStyle } from './css'
 
 /**
@@ -7,5 +8,9 @@ import { getFooterStyle } from './css'
  * @param {boolean} props.isActive
  */
 const Footer = ({ isActive }) => <div style={getFooterStyle(isActive)}>Footer</div>
+
+Footer.propTypes = {
+  isActive: PropTypes.bool.isRequired
+}
 
 export default Footer

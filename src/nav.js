@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from 'react'
 import useNav from './use-nav'
 
 /**
- * 
+ *
  * @param {Object} props
  * @param {Function} props.children
  * @param {string} props.id
@@ -13,6 +12,6 @@ import useNav from './use-nav'
  * @param {boolean} [props.active]
  * @returns {React.ReactElement} Nav
  */
-const Nav = ({ children, ...props}) => children(useNav(props))
+const Nav = ({ children, ...props }) => children(useNav(props))
 
 export default Nav
