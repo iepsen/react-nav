@@ -1,4 +1,6 @@
 const webpack = require('webpack')
+const path = require('path')
+
 module.exports = {
   entry: './src/index.js',
   module: {
@@ -11,10 +13,10 @@ module.exports = {
     ]
   },
   resolve: {
-    extensions: ['*', '.js',]
+    extensions: ['*', '.js']
   },
   output: {
-    path: __dirname + '/dist',
+    path: path.join(__dirname, '/dist'),
     publicPath: '/',
     filename: 'bundle.js'
   },
@@ -26,4 +28,4 @@ module.exports = {
     port: process.env.PORT || 8000,
     hot: true
   }
-};
+}

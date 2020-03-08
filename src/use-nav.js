@@ -54,7 +54,7 @@ const useNav = ({ id, active = false, onUp = null, onDown = null, onLeft = null,
      */
     const dispatchEvent = nextId => {
       if (!nextId) return
-      document.dispatchEvent(new CustomEvent(ON_NAV_CHANGE, { detail: { id: nextId } }))
+      document.dispatchEvent(new CustomEvent(ON_NAV_CHANGE, { detail: { id: nextId } }))
     }
 
     document.addEventListener(ON_KEY_DOWN, onKeyDown)
