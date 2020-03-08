@@ -19,5 +19,6 @@ ReactDOM.render(
     </Nav>
   </div>,
   document.getElementById('app')
-);
-module.hot.accept();
+)
+
+module.hot.accept()

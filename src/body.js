@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
+import PropTypes from 'prop-types'
 import { getBodyStyle } from './css'
 
 /**
@@ -7,5 +8,9 @@ import { getBodyStyle } from './css'
  * @param {boolean} props.isActive
  */
 const Body = ({ isActive }) => <div style={getBodyStyle(isActive)}>Body</div>
+
+Body.propTypes = {
+  isActive: PropTypes.bool.isRequired
+}
 
 export default Body

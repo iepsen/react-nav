@@ -4,7 +4,7 @@ import { ON_KEY_DOWN, ON_NAV_CHANGE } from './constants'
 /**
  * This hook aims to handle RCU/Keyboard navigation
  * between elements
- * 
+ *
  * @param {object} props
  * @param {string} props.id
  * @param {boolean} [props.active]
@@ -16,46 +16,45 @@ import { ON_KEY_DOWN, ON_NAV_CHANGE } from './constants'
  */
 const useNav = ({ id, active = false, onUp = null, onDown = null, onLeft = null, onRight = null }) => {
   const [isActive, setActive] = useState(active)
-  
+
   useEffect(() => {
     /**
      * Receive the keyboard key and dispatches the callback
      * based on the key pressed
-     * @param {KeyboardEvent} event 
+     * @param {KeyboardEvent} event
      */
     const onKeyDown = event => {
       if (!isActive) return
-      switch(event.key) {
+      switch (event.key) {
         case 'ArrowUp':
           dispatchEvent(onUp)
-        break
+          break
         case 'ArrowDown':
           dispatchEvent(onDown)
-        break
+          break
         case 'ArrowLeft':
           dispatchEvent(onLeft)
-        break
+          break
         case 'ArrowRight':
           dispatchEvent(onRight)
-        break
+          break
         default:
-          return
       }
     }
 
     /**
      * Receive a CustomEvent when a navigation event is fired
-     * @param {CustomEvent} event 
+     * @param {CustomEvent} event
      */
     const onNavChange = event => setActive(id === event.detail.id)
-   
+
     /**
      * Fires a CustomEvent with id as details
      * @param {string} nextId
      */
     const dispatchEvent = nextId => {
       if (!nextId) return
-      document.dispatchEvent(new CustomEvent(ON_NAV_CHANGE, { detail: { id: nextId }}))
+      document.dispatchEvent(new CustomEvent(ON_NAV_CHANGE, { detail: { id: nextId } }))
     }
 
     document.addEventListener(ON_KEY_DOWN, onKeyDown)
